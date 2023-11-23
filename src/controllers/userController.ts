@@ -38,7 +38,7 @@ export const createUser = async (req: Request, res: Response) => {
     });
   }
 
-  // Hash password before saving to the database
+  // Hashing password before saving to the database
   const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
   req.body.password = hashedPassword;
 
@@ -49,7 +49,7 @@ export const createUser = async (req: Request, res: Response) => {
       success: true,
       message: 'User created successfully!',
       data: {
-        // Exclude password from the response
+        
         userId: user.userId,
         username: user.username,
         fullName: user.fullName,
@@ -73,7 +73,7 @@ export const createUser = async (req: Request, res: Response) => {
   }
 };
 
-// Implement other user controller functions (listUsers, getUserById, updateUser, deleteUser)
+// Implementing user controller functions (listUsers, getUserById, updateUser, deleteUser)
 export const listUsers = async (req: Request, res: Response) => {
     try {
       const users = await UserModel.find({}, { password: 0 });
@@ -148,7 +148,7 @@ export const listUsers = async (req: Request, res: Response) => {
   };
   
   export const updateUser = async (req: Request, res: Response) => {
-    // Validate request body
+    // Validating request body
     const schema = Joi.object({
       userId: Joi.number().required(),
       username: Joi.string().required(),
@@ -180,7 +180,7 @@ export const listUsers = async (req: Request, res: Response) => {
       });
     }
   
-    // Hash password before saving to the database
+    // Hashing password before saving to the database
     const hashedPassword = await bcrypt.hash(req.body.password, saltRounds);
     req.body.password = hashedPassword;
   
