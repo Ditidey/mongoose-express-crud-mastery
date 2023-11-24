@@ -26,6 +26,7 @@
 
     /* Modules */
     "module": "commonjs",
+    "moduleResolution": "node",
     "outDir": "./dist",
     "rootDir": "./src",
     "strict": true,
