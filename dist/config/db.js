@@ -13,10 +13,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importDefault(require("mongoose"));
-const MONGODB_URI = "mongodb+srv://user-order:DfwYrf5lCPZg5wTE@cluster0.kos6m2u.mongodb.net/?retryWrites=true&w=majority";
+// const MONGODB_URI = "mongodb+srv://user-order:DfwYrf5lCPZg5wTE@cluster0.kos6m2u.mongodb.net/user-order?retryWrites=true&w=majority";
+// mongodb+srv://<username>:<password>@cluster0.kos6m2u.mongodb.net/?retryWrites=true&w=majority
 const connectDB = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield mongoose_1.default.connect(MONGODB_URI);
+        yield mongoose_1.default.connect(process.env.MONGODB_URI);
         console.log('Connected to MongoDB');
     }
     catch (error) {

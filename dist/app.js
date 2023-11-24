@@ -7,12 +7,12 @@ const express_1 = __importDefault(require("express"));
 const db_1 = __importDefault(require("./config/db"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
 const orderRoutes_1 = __importDefault(require("./routes/orderRoutes"));
-// import cors from 'cors';
+const cors_1 = __importDefault(require("cors"));
 const app = (0, express_1.default)();
 const PORT = process.env.PORT || 3000;
 // Middleware
 app.use(express_1.default.json());
-// app.use(cors())
+app.use((0, cors_1.default)());
 // Connect to MongoDB
 (0, db_1.default)();
 // Routes
