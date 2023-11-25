@@ -33,3 +33,4 @@ router.put('/api/users/:userId/orders', orderController.addOrder);
 router.get('/api/users/:userId/orders', orderController.listOrders);
 router.get('/api/users/:userId/orders/total-price', orderController.calculateTotalPrice);
 exports.default = router;
+//# sourceMappingURL=orderRoutes.js.map

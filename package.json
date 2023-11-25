@@ -4,9 +4,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node src/app.ts",
-    "build": "tsc"
+    "start": "nodemon src/app.ts",
+    "build": "rimraf dist && tsc",
+    "ts.check": "tsc --project tsconfig.json",
+    "add-build": "git add dist"
   },
+  "pre-commit": [
+    "ts.check",
+    "build",
+    "add-build"
+],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Ditidey/mongoose-express-crud-mastery.git"
@@ -35,6 +42,8 @@
   "devDependencies": {
     "@types/bcrypt": "^5.0.2",
     "@types/cors": "^2.8.17",
-    "@types/mongoose": "^5.11.97"
+    "@types/mongoose": "^5.11.97",
+    "pre-commit": "^1.2.2",
+    "rimraf": "^5.0.5"
   }
 }
